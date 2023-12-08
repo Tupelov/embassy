@@ -47,6 +47,9 @@ cortex-m = { version = "0.7.6", optional = true }
 wasm-bindgen = { version = "0.2.82", optional = true }
 js-sys = { version = "0.3", optional = true }
 
+# avr dependencies
+avr-device = {version = "0.5.3", optional = true, features = ["rt"]}
+
 [dev-dependencies]
 critical-section = { version = "1.1", features = ["std"] }
 
@@ -59,6 +62,7 @@ arch-std = ["_arch", "critical-section/std"]
 arch-cortex-m = ["_arch", "dep:cortex-m"]
 arch-riscv32 = ["_arch", "dep:portable-atomic"]
 arch-wasm = ["_arch", "dep:wasm-bindgen", "dep:js-sys"]
+arch-avr = ["_arch","dep:avr-device"]
 
 # Enable the thread-mode executor (using WFE/SEV in Cortex-M, WFI in other embedded archs)
 executor-thread = []
